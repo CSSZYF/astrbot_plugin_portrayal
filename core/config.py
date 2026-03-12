@@ -11,7 +11,6 @@ from astrbot.core.config.astrbot_config import AstrBotConfig
 from astrbot.core.provider.provider import Provider
 from astrbot.core.star.context import Context
 from astrbot.core.star.star_tools import StarTools
-from astrbot.core.utils.astrbot_path import get_astrbot_plugin_path
 
 
 class ConfigNode:
@@ -158,14 +157,14 @@ class PluginConfig(ConfigNode):
     inject_prompt: bool
     entry_storage: list[dict[str, Any]]
 
-    _plugin_name: str = "astrbot_plugin_portrayal"
+    _plugin_name: str = "astrbot_plugin_portrayal_csszyf"
 
     def __init__(self, cfg: AstrBotConfig, context: Context):
         super().__init__(cfg)
         self.context = context
 
         self.data_dir = StarTools.get_data_dir(self._plugin_name)
-        self.plugin_dir = Path(get_astrbot_plugin_path()) / self._plugin_name
+        self.plugin_dir = Path(__file__).resolve().parent.parent
         self.style_dir = self.plugin_dir / "pillowmd_style"
         self.cache_dir = self.data_dir / "cache"
         self.cache_dir.mkdir(parents=True, exist_ok=True)
