@@ -28,7 +28,7 @@
 
 ```bash
 cd /AstrBot/data/plugins
-git clone https://github.com/Zhalslar/astrbot_plugin_portrayal
+git clone https://github.com/CSSZYF/astrbot_plugin_portrayal
 ```
 
 ## 配置
